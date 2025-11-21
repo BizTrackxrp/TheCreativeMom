@@ -1,4 +1,3 @@
-cat > .eslintrc.json << 'EOF'
 {
   "extends": "next/core-web-vitals",
   "rules": {

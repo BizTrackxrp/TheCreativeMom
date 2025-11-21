@@ -11,8 +11,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+interface BlogPostProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function BlogPost({ params }: BlogPostProps) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -20,7 +25,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <div className="bg-white">
-      {/* Article Header */}
       <div className="border-b-4 border-black bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <Link 
@@ -57,7 +61,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      {/* Featured Image */}
       {post.coverImage && (
         <div className="border-b-4 border-black">
           <div className="bg-teal-400 h-96 flex items-center justify-center">
@@ -66,14 +69,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      {/* Article Content */}
       <article className="max-w-4xl mx-auto px-4 py-12">
         <div className="article-content prose-lg">
           <MDXRemote source={post.content} />
         </div>
       </article>
 
-      {/* Article Footer */}
       <div className="border-t-4 border-black bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -93,7 +94,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      {/* End of Article Marker */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center">
           <div className="inline-block border-t-2 border-b-2 border-black py-2 px-8">
