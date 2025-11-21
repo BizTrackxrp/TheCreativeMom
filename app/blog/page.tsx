@@ -2,13 +2,13 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import { format } from "date-fns";
 
-export default function BlogPage({
-  searchParams,
-}: {
-  searchParams: { category?: string };
-}) {
+interface BlogPageProps {
+  searchParams: Promise<{ category?: string }>;
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const { category } = await searchParams;
   const allPosts = getAllPosts();
-  const category = searchParams.category;
   
   const filteredPosts = category
     ? allPosts.filter((post) => post.category === category)
@@ -16,7 +16,6 @@ export default function BlogPage({
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Page Header */}
       <div className="mb-8">
         <div className="section-header mb-6">
           {category ? category : 'All Posts Archive'}
@@ -28,7 +27,6 @@ export default function BlogPage({
         </p>
       </div>
 
-      {/* Category Filter Buttons */}
       <div className="flex flex-wrap gap-4 mb-12 pb-8 border-b-2 border-black">
         <Link
           href="/blog"
@@ -55,7 +53,6 @@ export default function BlogPage({
         ))}
       </div>
 
-      {/* Posts Grid */}
       {filteredPosts.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
@@ -65,21 +62,18 @@ export default function BlogPage({
               className="article-card group"
             >
               <article className="h-full flex flex-col">
-                {/* Category badge */}
                 <div className="p-4 border-b border-gray-300 bg-gray-50">
                   <span className="text-xs font-bold uppercase tracking-wider">
                     {post.category}
                   </span>
                 </div>
                 
-                {/* Image placeholder */}
                 {post.category === 'Photo Essays' && (
                   <div className="bg-teal-400 h-48 flex items-center justify-center border-b border-gray-300">
                     <span className="text-3xl">📷</span>
                   </div>
                 )}
                 
-                {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="mb-3">
                     <span className="text-xs issue-tag text-gray-600">
