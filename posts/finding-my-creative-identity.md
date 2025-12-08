@@ -1,6 +1,6 @@
 ---
 title: "Finding My Creative Identity"
-date: "2024-12-07"
+date: "2025-12-07"
 excerpt: "Balancing motherhood and creativity has been its own kind of production. A transparent look at the pre-production, production, and post of creating while parenting."
 category: "Behind the Scenes"
 ---
