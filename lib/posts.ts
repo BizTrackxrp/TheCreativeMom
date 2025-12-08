@@ -8,7 +8,7 @@ export interface PostMetadata {
   title: string;
   date: string;
   excerpt: string;
-  category: 'Short Stories' | 'Photo Essays' | 'Movie Reviews' | 'Blog Post';
+  category: 'Behind the Scenes' | 'Screening Now' | 'Short Stories' | 'Photo Essays';
   coverImage?: string;
   slug: string;
 }
