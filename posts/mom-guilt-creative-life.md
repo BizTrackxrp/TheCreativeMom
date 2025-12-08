@@ -1,6 +1,6 @@
 ---
 title: "What Does 'Mom Guilt' Feel Like in My Creative Life?"
-date: "2024-12-08"
+date: "2025-12-08"
 excerpt: "Late night reflections on balancing motherhood with creative ambitions, and the guilt that comes with choosing between the two."
 category: "Blog Post"
 ---
