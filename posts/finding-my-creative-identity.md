@@ -22,3 +22,4 @@ I don't know how many of my followers have kids, but if you know, you know. Tryi
 So as I try to find a happy medium between quality, satisfaction, and getting my work out into the world, I find myself here, blogging. Take 3 on this post at 1 a.m. Transparency between my creative spirit and my maternal, loving, motherly duties will hopefully show the truth of what it's like to want to create, and to find the right time and peace of mind to actually do it.
 
 Bookmark this blog and check back in for updates, thank you for being here. Welcome to my behind the scenes.
+
