@@ -9,7 +9,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfa
 
 export const metadata: Metadata = {
   title: "The Creative Mom - Magazine",
-  description: "Short stories, photo essays, movie reviews, and creative blog posts",
+  description: "Behind the scenes, screening now, short stories, and photo essays",
 };
 
 export default function RootLayout({
@@ -56,6 +56,18 @@ export default function RootLayout({
                 Home
               </Link>
               <Link 
+                href="/blog?category=Behind the Scenes" 
+                className="text-sm md:text-base font-bold uppercase tracking-wider hover:text-teal-600 transition-colors"
+              >
+                Behind the Scenes
+              </Link>
+              <Link 
+                href="/blog?category=Screening Now" 
+                className="text-sm md:text-base font-bold uppercase tracking-wider hover:text-teal-600 transition-colors"
+              >
+                Screening Now
+              </Link>
+              <Link 
                 href="/blog?category=Short Stories" 
                 className="text-sm md:text-base font-bold uppercase tracking-wider hover:text-teal-600 transition-colors"
               >
@@ -66,12 +78,6 @@ export default function RootLayout({
                 className="text-sm md:text-base font-bold uppercase tracking-wider hover:text-teal-600 transition-colors"
               >
                 Photo Essays
-              </Link>
-              <Link 
-                href="/blog?category=Movie Reviews" 
-                className="text-sm md:text-base font-bold uppercase tracking-wider hover:text-teal-600 transition-colors"
-              >
-                Movie Reviews
               </Link>
               <Link 
                 href="/blog" 
@@ -102,7 +108,7 @@ export default function RootLayout({
               </h3>
               <div className="h-1 bg-teal-400 w-32 mx-auto mb-6"></div>
               <p className="text-gray-300 mb-6 text-lg">
-                Short Stories • Photo Essays • Movie Reviews • Blog Posts
+                Behind the Scenes • Screening Now • Short Stories • Photo Essays
               </p>
               <div className="flex justify-center gap-8 mb-6 flex-wrap text-sm">
                 <Link href="/" className="hover:text-teal-400 transition-colors uppercase font-semibold">
