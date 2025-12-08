@@ -37,6 +37,7 @@ export function getAllPosts(): PostMetadata[] {
           coverImage: data.coverImage,
         } as PostMetadata;
       });
+    
 
     return allPostsData.sort((a, b) => {
       if (a.date < b.date) {
