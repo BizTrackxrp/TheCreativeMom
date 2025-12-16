@@ -13,10 +13,10 @@ export default function Home() {
       {/* Lead Story - WITH HERO IMAGE */}
       {newestPost && (
         <section className="mb-12 pb-12 border-b-4 border-black">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-0 items-stretch">
             {/* Text */}
-            <div>
-              <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest">
+            <div className="p-8 md:p-10 flex flex-col justify-center">
+              <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest self-start">
                 Lead Story • {newestPost.category}
               </div>
               <h2 className="text-4xl md:text-5xl font-serif font-black mb-6 leading-tight">
@@ -30,18 +30,18 @@ export default function Home() {
               </div>
               <Link 
                 href={`/blog/${newestPost.slug}`}
-                className="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors"
+                className="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors self-start"
               >
                 Read Full Story →
               </Link>
             </div>
             
-            {/* Hero Image - Always shows this family illustration */}
-            <div className="flex items-center justify-center">
+            {/* Hero Image - BIGGER */}
+            <div className="bg-[#F5E6D3] flex items-center justify-center p-4">
               <img 
                 src="/images/creative-mom-hero.png" 
                 alt="The Creative Mom"
-                className="w-full max-w-md"
+                className="w-full h-full object-contain max-h-[500px]"
               />
             </div>
           </div>
