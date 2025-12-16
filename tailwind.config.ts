@@ -23,8 +23,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        'serif': ['Playfair Display', 'Georgia', 'serif'],
-        'sans': ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        'serif': ['var(--font-merriweather)', 'Georgia', 'serif'],
+        'sans': ['var(--font-inter)', 'Helvetica', 'Arial', 'sans-serif'],
         'mono': ['Courier New', 'monospace'],
       },
     },
