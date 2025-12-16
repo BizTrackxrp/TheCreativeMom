@@ -10,33 +10,45 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Lead Story - Full Width */}
+      {/* Lead Story - WITH HERO IMAGE */}
       {newestPost && (
         <section className="mb-12 pb-12 border-b-4 border-black">
-          <div className="max-w-4xl">
-            <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest">
-              Lead Story • {newestPost.category}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Text */}
+            <div>
+              <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest">
+                Lead Story • {newestPost.category}
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif font-black mb-6 leading-tight">
+                {newestPost.title}
+              </h2>
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+                {newestPost.excerpt}
+              </p>
+              <div className="text-xs uppercase tracking-wider text-gray-500 mb-6">
+                {format(new Date(newestPost.date), 'MMMM d, yyyy')}
+              </div>
+              <Link 
+                href={`/blog/${newestPost.slug}`}
+                className="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors"
+              >
+                Read Full Story →
+              </Link>
             </div>
-            <h2 className="text-5xl md:text-6xl font-serif font-black mb-6 leading-tight">
-              {newestPost.title}
-            </h2>
-            <p className="text-xl text-gray-700 mb-4 leading-relaxed">
-              {newestPost.excerpt}
-            </p>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mb-6">
-              {format(new Date(newestPost.date), 'MMMM d, yyyy')}
+            
+            {/* Hero Image - Always shows this family illustration */}
+            <div className="flex items-center justify-center">
+              <img 
+                src="/images/creative-mom-hero.png" 
+                alt="The Creative Mom"
+                className="w-full max-w-md"
+              />
             </div>
-            <Link 
-              href={`/blog/${newestPost.slug}`}
-              className="inline-block bg-black text-white px-8 py-3 text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors"
-            >
-              Read Full Story →
-            </Link>
           </div>
         </section>
       )}
 
-      {/* Second Story */}
+      {/* Second Story - NO IMAGE */}
       {secondPost && (
         <section className="mb-12 pb-12 border-b-4 border-black">
           <div className="bg-black text-white px-4 py-2 inline-block mb-6 text-sm font-bold uppercase tracking-widest">
@@ -63,7 +75,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* More Stories - Three Column Grid */}
+      {/* More Stories - NO IMAGES */}
       {olderPosts.length > 0 && (
         <section className="mb-12">
           <div className="bg-black text-white px-4 py-2 inline-block mb-6 text-sm font-bold uppercase tracking-widest">
