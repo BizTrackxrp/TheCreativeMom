@@ -27,7 +27,6 @@ export function getAllPosts(): PostMetadata[] {
         const fullPath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data } = matter(fileContents);
-
         return {
           slug,
           title: data.title,
@@ -38,7 +37,6 @@ export function getAllPosts(): PostMetadata[] {
         } as PostMetadata;
       });
     
-
     return allPostsData.sort((a, b) => {
       if (a.date < b.date) {
         return 1;
@@ -62,9 +60,7 @@ export function getPostBySlug(slug: string): Post | null {
       const mdxPath = path.join(postsDirectory, `${slug}.mdx`);
       fileContents = fs.readFileSync(mdxPath, 'utf8');
     }
-
     const { data, content } = matter(fileContents);
-
     return {
       slug,
       title: data.title,
@@ -87,12 +83,4 @@ export function getPostsByCategory(category: string): PostMetadata[] {
 export function getIssueNumber(): string {
   const posts = getAllPosts();
   return `Issue ${posts.length + 1}`;
-}
-
-export function getCurrentDate(): string {
-  return new Date().toLocaleDateString('en-US', { 
-    day: 'numeric',
-    month: 'long', 
-    year: 'numeric' 
-  });
 }
