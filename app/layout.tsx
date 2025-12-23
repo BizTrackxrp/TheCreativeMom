@@ -3,7 +3,6 @@
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { getCurrentDate } from "@/lib/utils";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
@@ -15,37 +14,63 @@ const merriweather = Merriweather({
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const currentDate = getCurrentDate();
 
   const closeMenu = () => setIsOpen(false);
 
   return (
     <>
-      {/* Newspaper Header Info */}
-      <div className="border-b border-black bg-white">
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <div className="flex justify-between items-center text-xs uppercase tracking-widest">
-            <span className="font-semibold">{currentDate}</span>
-            <span className="hidden md:inline font-light">All about creativity</span>
-            <span className="font-semibold">Issue 12</span>
+      {/* Desktop Header - Full newspaper style */}
+      <div className="hidden md:block">
+        {/* Newspaper Header Info */}
+        <div className="border-b border-black bg-white">
+          <div className="max-w-7xl mx-auto px-4 py-2">
+            <div className="flex justify-between items-center text-xs uppercase tracking-widest">
+              <span className="font-semibold">December 23, 2025</span>
+              <span className="font-light">All about creativity</span>
+              <span className="font-semibold">Issue 12</span>
+            </div>
           </div>
         </div>
+
+        {/* Newspaper Masthead */}
+        <header className="border-b-4 border-black bg-white py-6">
+          <div className="max-w-7xl mx-auto px-4">
+            <Link href="/">
+              <h1 className="text-center text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
+                THE CREATIVE MOM
+              </h1>
+            </Link>
+            <div className="border-t border-black w-full max-w-xl mx-auto mt-3"></div>
+            <p className="text-center text-xs uppercase tracking-widest mt-2 text-gray-600">
+              Behind the Scenes • Screening Now • Stories & Essays
+            </p>
+          </div>
+        </header>
       </div>
 
-      {/* Newspaper Masthead */}
-      <header className="border-b-4 border-black bg-white py-6">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Mobile Header - Simplified */}
+      <div className="md:hidden sticky top-0 z-40 bg-white border-b-2 border-black">
+        <div className="flex items-center justify-between px-4 py-3">
+          {/* Hamburger Menu - Left Side */}
+          <button 
+            onClick={() => setIsOpen(true)}
+            className="text-3xl p-2"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+
+          {/* Logo - Center */}
           <Link href="/" onClick={closeMenu}>
-            <h1 className="text-center text-5xl md:text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
+            <h1 className="text-2xl font-black font-serif tracking-tight">
               THE CREATIVE MOM
             </h1>
           </Link>
-          <div className="border-t border-black w-full max-w-xl mx-auto mt-3"></div>
-          <p className="text-center text-xs uppercase tracking-widest mt-2 text-gray-600 hidden md:block">
-            Behind the Scenes • Screening Now • Stories & Essays
-          </p>
+
+          {/* Empty space for balance */}
+          <div className="w-12"></div>
         </div>
-      </header>
+      </div>
 
       {/* Navigation - Desktop */}
       <nav className="border-b-2 border-black bg-white sticky top-0 z-40 hidden md:block">
@@ -96,19 +121,6 @@ function Navigation() {
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu Button */}
-      <div className="border-b-2 border-black bg-white sticky top-0 z-40 md:hidden">
-        <div className="px-4 py-3">
-          <button 
-            onClick={() => setIsOpen(true)}
-            className="flex justify-between items-center w-full cursor-pointer"
-          >
-            <span className="font-bold uppercase tracking-wider text-sm">Menu</span>
-            <span className="text-2xl">☰</span>
-          </button>
-        </div>
-      </div>
 
       {/* Mobile Sidebar Overlay */}
       {isOpen && (
