@@ -50,7 +50,7 @@ export default function AboutPage() {
 
         {/* What You'll Find */}
         <div className="border-2 border-black p-8 mb-8">
-          <h3 className="text-2xl font-serif font-bold mb-6 border-b-2 border-black pb-3">
+          <h3 className="text-2xl font-serif font-bold mb-6">
             What You'll Find Here
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
