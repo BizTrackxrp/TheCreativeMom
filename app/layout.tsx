@@ -29,7 +29,6 @@ function Navigation() {
                 THE CREATIVE MOM
               </h1>
             </Link>
-            <div className="border-t border-black w-full max-w-xl mx-auto mt-4"></div>
           </div>
         </header>
       </div>
