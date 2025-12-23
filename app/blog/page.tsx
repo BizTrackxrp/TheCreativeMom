@@ -37,26 +37,18 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               href={`/blog/${post.slug}`}
               className="border-2 border-black hover:shadow-lg transition-all group"
             >
-              <article className="h-full flex flex-col">
-                <div className="p-4 border-b-2 border-black bg-gray-50">
-                  <span className="text-xs font-bold uppercase tracking-wider">
-                    {post.category}
+              <article className="h-full flex flex-col p-6 bg-white">
+                <div className="mb-3">
+                  <span className="text-xs uppercase tracking-wider text-gray-600">
+                    {format(new Date(post.date), 'MMMM d, yyyy')}
                   </span>
                 </div>
-                
-                <div className="p-6 flex-1 flex flex-col bg-white">
-                  <div className="mb-3">
-                    <span className="text-xs uppercase tracking-wider text-gray-600">
-                      {format(new Date(post.date), 'MMMM d, yyyy')}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-serif font-bold mb-3 group-hover:underline">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-700 text-sm leading-relaxed flex-1">
-                    {post.excerpt}
-                  </p>
-                </div>
+                <h2 className="text-2xl font-serif font-bold mb-3 group-hover:underline">
+                  {post.title}
+                </h2>
+                <p className="text-gray-700 text-sm leading-relaxed flex-1">
+                  {post.excerpt}
+                </p>
               </article>
             </Link>
           ))}
