@@ -41,7 +41,7 @@ export default function RootLayout({
         <header className="border-b-4 border-black bg-white py-6">
           <div className="max-w-7xl mx-auto px-4">
             <Link href="/">
-              <h1 className="text-center text-6xl md:text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
+              <h1 className="text-center text-5xl md:text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
                 THE CREATIVE MOM
               </h1>
             </Link>
@@ -52,8 +52,8 @@ export default function RootLayout({
           </div>
         </header>
 
-        {/* Navigation */}
-        <nav className="border-b-2 border-black bg-white sticky top-0 z-50">
+        {/* Navigation - Desktop */}
+        <nav className="border-b-2 border-black bg-white sticky top-0 z-50 hidden md:block">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex justify-center md:justify-between items-center py-3 gap-8 flex-wrap text-sm">
               <Link 
@@ -99,6 +99,62 @@ export default function RootLayout({
                 About
               </Link>
             </div>
+          </div>
+        </nav>
+
+        {/* Navigation - Mobile Hamburger */}
+        <nav className="border-b-2 border-black bg-white sticky top-0 z-50 md:hidden">
+          <div className="px-4 py-3">
+            <details className="group">
+              <summary className="flex justify-between items-center cursor-pointer list-none">
+                <span className="font-bold uppercase tracking-wider text-sm">Menu</span>
+                <span className="text-2xl group-open:rotate-90 transition-transform">☰</span>
+              </summary>
+              <div className="mt-4 pt-4 border-t border-black space-y-3">
+                <Link 
+                  href="/" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/blog?category=Behind the Scenes" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  Behind the Scenes
+                </Link>
+                <Link 
+                  href="/blog?category=Screening Now" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  Screening Now
+                </Link>
+                <Link 
+                  href="/blog?category=Short Stories" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  Short Stories
+                </Link>
+                <Link 
+                  href="/blog?category=Photo Essays" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  Photo Essays
+                </Link>
+                <Link 
+                  href="/blog" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  All Posts
+                </Link>
+                <Link 
+                  href="/about" 
+                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
+                >
+                  About
+                </Link>
+              </div>
+            </details>
           </div>
         </nav>
         
