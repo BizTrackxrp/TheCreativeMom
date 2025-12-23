@@ -10,10 +10,44 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Lead Story - WITH HERO IMAGE */}
+      {/* Lead Story */}
       {newestPost && (
         <section className="mb-12 pb-12 border-b-4 border-black">
-          <div className="grid md:grid-cols-2 gap-0 items-stretch">
+          {/* Mobile Layout - Image First */}
+          <div className="md:hidden">
+            {/* Image */}
+            <div className="bg-[#F5E6D3] flex items-center justify-center p-4 mb-6">
+              <img 
+                src="/images/creative-mom-hero.png" 
+                alt="The Creative Mom"
+                className="w-full max-w-sm"
+              />
+            </div>
+            {/* Text */}
+            <div>
+              <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest">
+                Lead Story • {newestPost.category}
+              </div>
+              <h2 className="text-3xl font-serif font-black mb-4 leading-tight">
+                {newestPost.title}
+              </h2>
+              <p className="text-base text-gray-700 mb-4 leading-relaxed">
+                {newestPost.excerpt}
+              </p>
+              <div className="text-xs uppercase tracking-wider text-gray-500 mb-6">
+                {format(new Date(newestPost.date), 'MMMM d, yyyy')}
+              </div>
+              <Link 
+                href={`/blog/${newestPost.slug}`}
+                className="inline-block bg-black text-white px-6 py-3 text-sm font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors"
+              >
+                Read Full Story →
+              </Link>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Side by Side */}
+          <div className="hidden md:grid md:grid-cols-2 gap-0 items-stretch">
             {/* Text */}
             <div className="p-8 md:p-10 flex flex-col justify-center">
               <div className="bg-black text-white px-4 py-2 inline-block mb-4 text-xs font-bold uppercase tracking-widest self-start">
@@ -36,7 +70,7 @@ export default function Home() {
               </Link>
             </div>
             
-            {/* Hero Image - BIGGER */}
+            {/* Hero Image */}
             <div className="bg-[#F5E6D3] flex items-center justify-center p-4">
               <img 
                 src="/images/creative-mom-hero.png" 
