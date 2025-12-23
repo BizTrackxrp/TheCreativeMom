@@ -1,8 +1,11 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { getCurrentDate } from "@/lib/posts";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const merriweather = Merriweather({ 
@@ -11,152 +14,200 @@ const merriweather = Merriweather({
   variable: '--font-merriweather' 
 });
 
-export const metadata: Metadata = {
-  title: "The Creative Mom - Magazine",
-  description: "Behind the scenes, screening now, short stories, and photo essays",
-};
+function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const currentDate = getCurrentDate();
+
+  const closeMenu = () => setIsOpen(false);
+
+  return (
+    <>
+      {/* Newspaper Header Info */}
+      <div className="border-b border-black bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <div className="flex justify-between items-center text-xs uppercase tracking-widest">
+            <span className="font-semibold">{currentDate}</span>
+            <span className="hidden md:inline font-light">All about creativity</span>
+            <span className="font-semibold">Issue 12</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Newspaper Masthead */}
+      <header className="border-b-4 border-black bg-white py-6">
+        <div className="max-w-7xl mx-auto px-4">
+          <Link href="/" onClick={closeMenu}>
+            <h1 className="text-center text-5xl md:text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
+              THE CREATIVE MOM
+            </h1>
+          </Link>
+          <div className="border-t border-black w-full max-w-xl mx-auto mt-3"></div>
+          <p className="text-center text-xs uppercase tracking-widest mt-2 text-gray-600 hidden md:block">
+            Behind the Scenes • Screening Now • Stories & Essays
+          </p>
+        </div>
+      </header>
+
+      {/* Navigation - Desktop */}
+      <nav className="border-b-2 border-black bg-white sticky top-0 z-40 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-center md:justify-between items-center py-3 gap-8 text-sm">
+            <Link 
+              href="/" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/blog?category=Behind the Scenes" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              Behind the Scenes
+            </Link>
+            <Link 
+              href="/blog?category=Screening Now" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              Screening Now
+            </Link>
+            <Link 
+              href="/blog?category=Short Stories" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              Short Stories
+            </Link>
+            <Link 
+              href="/blog?category=Photo Essays" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              Photo Essays
+            </Link>
+            <Link 
+              href="/blog" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              All Posts
+            </Link>
+            <Link 
+              href="/about" 
+              className="font-bold uppercase tracking-wider hover:underline transition-all"
+            >
+              About
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Button */}
+      <div className="border-b-2 border-black bg-white sticky top-0 z-40 md:hidden">
+        <div className="px-4 py-3">
+          <button 
+            onClick={() => setIsOpen(true)}
+            className="flex justify-between items-center w-full cursor-pointer"
+          >
+            <span className="font-bold uppercase tracking-wider text-sm">Menu</span>
+            <span className="text-2xl">☰</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Sidebar Overlay */}
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden"
+            onClick={closeMenu}
+          />
+          
+          {/* Sidebar */}
+          <div className="fixed top-0 left-0 h-full w-80 bg-white border-r-4 border-black z-50 md:hidden overflow-y-auto">
+            <div className="p-6">
+              {/* Close button */}
+              <button 
+                onClick={closeMenu}
+                className="absolute top-4 right-4 text-3xl font-bold"
+              >
+                ×
+              </button>
+
+              {/* Sidebar Header */}
+              <h2 className="text-2xl font-serif font-black mb-2 mt-2">
+                THE CREATIVE MOM
+              </h2>
+              <p className="text-xs uppercase tracking-widest text-gray-600 mb-6 pb-6 border-b-2 border-black">
+                Navigation
+              </p>
+
+              {/* Sidebar Links */}
+              <div className="space-y-1">
+                <Link 
+                  href="/" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/blog?category=Behind the Scenes" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  Behind the Scenes
+                </Link>
+                <Link 
+                  href="/blog?category=Screening Now" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  Screening Now
+                </Link>
+                <Link 
+                  href="/blog?category=Short Stories" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  Short Stories
+                </Link>
+                <Link 
+                  href="/blog?category=Photo Essays" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  Photo Essays
+                </Link>
+                <Link 
+                  href="/blog" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
+                >
+                  All Posts
+                </Link>
+                <Link 
+                  href="/about" 
+                  onClick={closeMenu}
+                  className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2"
+                >
+                  About
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const currentDate = getCurrentDate();
-  
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
+    <html lang={`en ${inter.variable} ${merriweather.variable}`}>
       <body className="font-sans bg-white">
-        {/* Newspaper Header Info */}
-        <div className="border-b border-black bg-white">
-          <div className="max-w-7xl mx-auto px-4 py-2">
-            <div className="flex justify-between items-center text-xs uppercase tracking-widest">
-              <span className="font-semibold">{currentDate}</span>
-              <span className="hidden md:inline font-light">All about creativity</span>
-              <span className="font-semibold">Issue 12</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Newspaper Masthead */}
-        <header className="border-b-4 border-black bg-white py-6">
-          <div className="max-w-7xl mx-auto px-4">
-            <Link href="/">
-              <h1 className="text-center text-5xl md:text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
-                THE CREATIVE MOM
-              </h1>
-            </Link>
-            <div className="border-t border-black w-full max-w-xl mx-auto mt-3"></div>
-            <p className="text-center text-xs uppercase tracking-widest mt-2 text-gray-600">
-              Behind the Scenes • Screening Now • Stories & Essays
-            </p>
-          </div>
-        </header>
-
-        {/* Navigation - Desktop */}
-        <nav className="border-b-2 border-black bg-white sticky top-0 z-50 hidden md:block">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex justify-center md:justify-between items-center py-3 gap-8 flex-wrap text-sm">
-              <Link 
-                href="/" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                Home
-              </Link>
-              <Link 
-                href="/blog?category=Behind the Scenes" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                Behind the Scenes
-              </Link>
-              <Link 
-                href="/blog?category=Screening Now" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                Screening Now
-              </Link>
-              <Link 
-                href="/blog?category=Short Stories" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                Short Stories
-              </Link>
-              <Link 
-                href="/blog?category=Photo Essays" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                Photo Essays
-              </Link>
-              <Link 
-                href="/blog" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                All Posts
-              </Link>
-              <Link 
-                href="/about" 
-                className="font-bold uppercase tracking-wider hover:underline transition-all"
-              >
-                About
-              </Link>
-            </div>
-          </div>
-        </nav>
-
-        {/* Navigation - Mobile Hamburger */}
-        <nav className="border-b-2 border-black bg-white sticky top-0 z-50 md:hidden">
-          <div className="px-4 py-3">
-            <details className="group">
-              <summary className="flex justify-between items-center cursor-pointer list-none">
-                <span className="font-bold uppercase tracking-wider text-sm">Menu</span>
-                <span className="text-2xl group-open:rotate-90 transition-transform">☰</span>
-              </summary>
-              <div className="mt-4 pt-4 border-t border-black space-y-3">
-                <Link 
-                  href="/" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  Home
-                </Link>
-                <Link 
-                  href="/blog?category=Behind the Scenes" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  Behind the Scenes
-                </Link>
-                <Link 
-                  href="/blog?category=Screening Now" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  Screening Now
-                </Link>
-                <Link 
-                  href="/blog?category=Short Stories" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  Short Stories
-                </Link>
-                <Link 
-                  href="/blog?category=Photo Essays" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  Photo Essays
-                </Link>
-                <Link 
-                  href="/blog" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  All Posts
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="block font-bold uppercase tracking-wider hover:underline text-sm py-2"
-                >
-                  About
-                </Link>
-              </div>
-            </details>
-          </div>
-        </nav>
+        <Navigation />
         
         <main className="min-h-screen bg-white">
           {children}
