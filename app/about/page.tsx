@@ -83,20 +83,33 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Connect */}
-        <div className="border-2 border-black p-8 text-center">
-          <h2 className="text-2xl font-serif font-bold mb-4">
-            Let's Connect
+        {/* Coming Soon - Write for Us */}
+        <div className="border-4 border-black p-12 text-center bg-gray-50">
+          <h2 className="text-3xl font-serif font-black mb-4 uppercase">
+            Coming Soon
           </h2>
-          <p className="text-gray-700 mb-6">
-            Bookmark this blog and check back for updates. Thank you for being here!
-          </p>
-          <a 
-            href="mailto:hello@thecreativemom.com" 
-            className="inline-block bg-black text-white px-8 py-3 font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors text-sm"
-          >
-            Get in Touch
-          </a>
+          <h3 className="text-xl font-serif font-bold mb-6">
+            Want to Write on The Creative Mom Blog?
+          </h3>
+          <div className="max-w-2xl mx-auto text-gray-700 leading-relaxed space-y-4">
+            <p>
+              We're building a platform where creative writers can share their stories, 
+              connect with readers, and grow their audience.
+            </p>
+            <p className="font-semibold">
+              Coming features:
+            </p>
+            <ul className="text-left inline-block space-y-2">
+              <li>• Create your writer account and profile</li>
+              <li>• Publish your posts directly to the blog</li>
+              <li>• Receive tips from readers who love your work</li>
+              <li>• Build your portfolio with all your posts in one place</li>
+              <li>• Searchable by writer name or post title</li>
+            </ul>
+            <p className="mt-6 text-sm uppercase tracking-wide font-bold">
+              Stay tuned for updates!
+            </p>
+          </div>
         </div>
       </div>
     </div>
