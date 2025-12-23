@@ -19,31 +19,17 @@ function Navigation() {
 
   return (
     <>
-      {/* Desktop Header - Full newspaper style */}
+      {/* Desktop Header - Simplified */}
       <div className="hidden md:block">
-        {/* Newspaper Header Info */}
-        <div className="border-b border-black bg-white">
-          <div className="max-w-7xl mx-auto px-4 py-2">
-            <div className="flex justify-between items-center text-xs uppercase tracking-widest">
-              <span className="font-semibold">December 23, 2025</span>
-              <span className="font-light">All about creativity</span>
-              <span className="font-semibold">Issue 12</span>
-            </div>
-          </div>
-        </div>
-
         {/* Newspaper Masthead */}
-        <header className="border-b-4 border-black bg-white py-6">
+        <header className="border-b-4 border-black bg-white py-8">
           <div className="max-w-7xl mx-auto px-4">
             <Link href="/">
               <h1 className="text-center text-7xl font-black font-serif tracking-tight hover:opacity-70 transition-opacity">
                 THE CREATIVE MOM
               </h1>
             </Link>
-            <div className="border-t border-black w-full max-w-xl mx-auto mt-3"></div>
-            <p className="text-center text-xs uppercase tracking-widest mt-2 text-gray-600">
-              Behind the Scenes • Screening Now • Stories & Essays
-            </p>
+            <div className="border-t border-black w-full max-w-xl mx-auto mt-4"></div>
           </div>
         </header>
       </div>
