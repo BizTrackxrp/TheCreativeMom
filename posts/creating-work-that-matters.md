@@ -1,7 +1,7 @@
 ---
 title: "Creating Work That Matters, and What's the Purpose Behind My Work?"
 date: "2025-12-13"
-excerpt: "As a creative who is still maturing as a filmmaker, I often wonder whether creating deep, impactful work makes me any less of an artist, or if it would make my work any less valuable to an audience."
+excerpt: "As a creative who is still maturing as a filmmaker, I often wonder if creating deep, impactful work makes me any less of an artist, or makes my work any less valuable to an audience."
 category: "Behind the Scenes"
 ---
 
@@ -24,7 +24,7 @@ I love the thought and provocation that comes with creating ideas. It's a part o
 
 I tend to generate ideas from a place of curiosity rather than from a desire to "serve a purpose". And of course every story has a purpose, but I am talking about a deep and intentional meaning. Something spiritual, educational or aimed at a specific audience.
 
-As a creative who is still maturing as a filmmaker, I often wonder about that. I wonder whether or not creating deep, impactful work makes me any less of an artist and filmmaker, or if it would make my work any less valuable to an audience.
+As a creative who is still maturing as a filmmaker, I often wonder about that. I wonder if creating deep, impactful work makes me any less of an artist, or makes my work any less valuable to an audience.
 
 And while I have an appreciation for the commitment of artists who are capable of educating others through their art, or who influence a person's understanding and challenge a viewer's way of thinking, that is not a style of writing that I have tried or have been drawn to… Yet?
 
