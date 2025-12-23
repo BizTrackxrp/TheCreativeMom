@@ -209,29 +209,10 @@ export default function RootLayout({
           {children}
         </main>
         
-        {/* Newspaper Footer */}
+        {/* Simplified Footer */}
         <footer className="border-t-4 border-black bg-white mt-20">
           <div className="max-w-7xl mx-auto px-4 py-8">
-            <div className="text-center border-b border-gray-300 pb-6 mb-6">
-              <h3 className="text-4xl font-serif font-black mb-2">
-                THE CREATIVE MOM
-              </h3>
-              <p className="text-xs uppercase tracking-widest text-gray-600">
-                Behind the Scenes • Screening Now • Short Stories • Photo Essays
-              </p>
-            </div>
-            <div className="flex justify-center gap-8 mb-6 flex-wrap text-sm">
-              <Link href="/" className="hover:underline uppercase font-semibold">
-                Home
-              </Link>
-              <Link href="/blog" className="hover:underline uppercase font-semibold">
-                All Posts
-              </Link>
-              <Link href="/about" className="hover:underline uppercase font-semibold">
-                About
-              </Link>
-            </div>
-            <div className="text-center pt-6 border-t border-gray-300">
+            <div className="text-center">
               <p className="text-xs text-gray-500">
                 © {new Date().getFullYear()} The Creative Mom. All rights reserved.
               </p>
