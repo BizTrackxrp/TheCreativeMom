@@ -1,10 +1,9 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { getCurrentDate } from "@/lib/posts";
+import { getCurrentDate } from "@/lib/utils";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
@@ -205,7 +204,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={`en ${inter.variable} ${merriweather.variable}`}>
+    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
       <body className="font-sans bg-white">
         <Navigation />
         
