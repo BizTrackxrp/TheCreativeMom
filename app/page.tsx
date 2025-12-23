@@ -6,13 +6,13 @@ export default function Home() {
   const posts = getAllPosts();
   const newestPost = posts[0];
   const secondPost = posts[1];
-  const olderPosts = posts.slice(2, 5);
+  const olderPosts = posts.slice(2, 4); // Only show 2 more posts (total of 4)
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Lead Story */}
       {newestPost && (
-        <section className="mb-12 pb-12 border-b-4 border-black">
+        <section className="mb-8 md:mb-12 pb-8 md:pb-12 border-b-4 border-black">
           {/* Mobile Layout - Image First */}
           <div className="md:hidden">
             {/* Image */}
@@ -78,10 +78,10 @@ export default function Home() {
 
       {/* Second Story */}
       {secondPost && (
-        <section className="mb-12 pb-12 border-b-4 border-black">
+        <section className="mb-8 md:mb-12 pb-8 md:pb-12 border-b-4 border-black">
           <Link href={`/blog/${secondPost.slug}`} className="block group">
             <div className="max-w-4xl">
-              <h3 className="text-3xl md:text-4xl font-serif font-black mb-3 group-hover:underline leading-tight">
+              <h3 className="text-2xl md:text-4xl font-serif font-black mb-3 group-hover:underline leading-tight">
                 {secondPost.title}
               </h3>
               <div className="text-xs uppercase tracking-wider text-gray-600 mb-4">
@@ -95,18 +95,18 @@ export default function Home() {
         </section>
       )}
 
-      {/* More Stories - Simple Grid */}
+      {/* More Stories - Last 2 Posts */}
       {olderPosts.length > 0 && (
-        <section className="mb-12">
-          <div className="grid md:grid-cols-3 gap-8">
+        <section className="mb-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {olderPosts.map((post) => (
               <Link 
                 key={post.slug} 
                 href={`/blog/${post.slug}`}
-                className="group border-t-2 border-black pt-4"
+                className="group pb-6 border-b-2 border-black"
               >
                 <article>
-                  <h3 className="text-xl font-serif font-bold mb-3 group-hover:underline leading-tight">
+                  <h3 className="text-2xl md:text-xl font-serif font-bold mb-3 group-hover:underline leading-tight">
                     {post.title}
                   </h3>
                   <div className="text-xs uppercase tracking-wider text-gray-600 mb-3">
@@ -121,6 +121,16 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* View All Posts Link */}
+      <div className="text-right mt-8 mb-4">
+        <Link 
+          href="/blog"
+          className="text-sm uppercase tracking-wide underline hover:no-underline font-bold"
+        >
+          View All Posts →
+        </Link>
+      </div>
     </div>
   );
 }
