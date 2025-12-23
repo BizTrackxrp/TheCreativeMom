@@ -35,17 +35,17 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <Link 
               key={post.slug} 
               href={`/blog/${post.slug}`}
-              className="border-2 border-black hover:shadow-lg transition-all group"
+              className="border-2 border-black hover:shadow-lg transition-all group p-6 bg-white"
             >
-              <article className="h-full flex flex-col p-6 bg-white">
-                <div className="mb-3">
-                  <span className="text-xs uppercase tracking-wider text-gray-600">
-                    {format(new Date(post.date), 'MMMM d, yyyy')}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-serif font-bold mb-3 group-hover:underline">
+              <article className="h-full flex flex-col">
+                <h2 className="text-2xl font-serif font-bold mb-4 group-hover:underline leading-tight">
                   {post.title}
                 </h2>
+                
+                <div className="text-xs uppercase tracking-wider text-gray-600 mb-3">
+                  By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
+                </div>
+
                 <p className="text-gray-700 text-sm leading-relaxed flex-1">
                   {post.excerpt}
                 </p>
