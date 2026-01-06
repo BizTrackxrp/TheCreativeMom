@@ -74,7 +74,7 @@ function Navigation() {
               Behind the Scenes
             </Link>
             <Link 
-              href="/blog?category=Screening Now" 
+              href="/screening-now" 
               className="font-bold uppercase tracking-wider hover:underline transition-all"
             >
               Screening Now
@@ -152,7 +152,7 @@ function Navigation() {
                   Behind the Scenes
                 </Link>
                 <Link 
-                  href="/blog?category=Screening Now" 
+                  href="/screening-now" 
                   onClick={closeMenu}
                   className="block font-bold uppercase tracking-wider hover:bg-gray-100 text-sm py-3 px-2 border-b border-gray-200"
                 >
