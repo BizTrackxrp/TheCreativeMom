@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 interface Review {
   id: number;
@@ -19,7 +18,7 @@ const reviews: Review[] = [
     title: "Caught Stealing",
     type: "Movie",
     year: "2024",
-    posterUrl: "https://image.tmdb.org/t/p/w500/xFjW6p4VGKKEPKfk0gKqcXgPKjb.jpg",
+    posterUrl: "/images/caught-stealing.jpeg",
     review: "Review coming soon...",
     date: "01/06/2026"
   },
@@ -28,7 +27,7 @@ const reviews: Review[] = [
     title: "Malcolm & Marie",
     type: "Movie",
     year: "2021",
-    posterUrl: "https://image.tmdb.org/t/p/w500/5xXChAoVpilV1V69DE9wlmLgQfb.jpg",
+    posterUrl: "/images/malcolm-marie.jpg",
     review: "Review coming soon...",
     date: "12/20/2025"
   },
@@ -37,7 +36,7 @@ const reviews: Review[] = [
     title: "The Beast in Me",
     type: "TV Show",
     year: "2024",
-    posterUrl: "https://image.tmdb.org/t/p/w500/k9dN3MjPXTFCqRvfIf5s6cH5H6u.jpg",
+    posterUrl: "/images/beast-in-me.png",
     review: "Review coming soon...",
     date: "12/15/2025"
   },
@@ -46,7 +45,7 @@ const reviews: Review[] = [
     title: "Nashville",
     type: "TV Show",
     year: "2012-2018",
-    posterUrl: "https://image.tmdb.org/t/p/w500/6zVKhHilAccuV4WZTBDMFsZCMxY.jpg",
+    posterUrl: "/images/nashville.jpeg",
     review: "Review coming soon...",
     date: "12/10/2025"
   },
@@ -55,7 +54,7 @@ const reviews: Review[] = [
     title: "NCIS",
     type: "TV Show",
     year: "2003-Present",
-    posterUrl: "https://image.tmdb.org/t/p/w500/2exOHePjOTquUsbThPGhuEjYTyA.jpg",
+    posterUrl: "/images/ncis.jpg",
     review: "Review coming soon...",
     date: "12/05/2025"
   },
@@ -64,7 +63,7 @@ const reviews: Review[] = [
     title: "Gossip Girl",
     type: "TV Show",
     year: "2007-2012",
-    posterUrl: "https://image.tmdb.org/t/p/w500/hvDlmhoImfX5oUYS2gXxgEe4UBi.jpg",
+    posterUrl: "/images/gossip-girl.jpg",
     review: "Review coming soon...",
     date: "11/30/2025"
   }
@@ -98,15 +97,6 @@ export default function ScreeningNowPage() {
                 alt={review.title}
                 className="w-full aspect-[2/3] object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center text-white p-4">
-                  <p className="text-sm font-bold uppercase tracking-wider mb-2">
-                    Click to Read Review
-                  </p>
-                </div>
-              </div>
             </div>
             
             {/* Title & Info */}
