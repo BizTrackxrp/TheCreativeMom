@@ -1,52 +1,29 @@
 "use client";
 
-import { getPostBySlug, getAllPosts } from "@/lib/posts";
-import { notFound } from "next/navigation";
-import { format } from "date-fns";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export async function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+interface PostContentProps {
+  content: string;
+  slug: string;
 }
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export default function PostPage({ params }: PageProps) {
-  const [slug, setSlug] = useState<string>("");
-  const [post, setPost] = useState<any>(null);
+export default function PostContent({ content, slug }: PostContentProps) {
   const [likes, setLikes] = useState<number>(0);
   const [hasLiked, setHasLiked] = useState<boolean>(false);
 
   useEffect(() => {
-    params.then(({ slug: resolvedSlug }) => {
-      setSlug(resolvedSlug);
-      const postData = getPostBySlug(resolvedSlug);
-      
-      if (!postData) {
-        notFound();
-      }
-      
-      setPost(postData);
+    // Load likes from localStorage
+    const storedLikes = localStorage.getItem(`likes-${slug}`);
+    if (storedLikes) {
+      setLikes(parseInt(storedLikes));
+    }
 
-      // Load likes from localStorage
-      const storedLikes = localStorage.getItem(`likes-${resolvedSlug}`);
-      if (storedLikes) {
-        setLikes(parseInt(storedLikes));
-      }
-
-      // Check if user has already liked
-      const userLiked = localStorage.getItem(`liked-${resolvedSlug}`);
-      if (userLiked === "true") {
-        setHasLiked(true);
-      }
-    });
-  }, [params]);
+    // Check if user has already liked
+    const userLiked = localStorage.getItem(`liked-${slug}`);
+    if (userLiked === "true") {
+      setHasLiked(true);
+    }
+  }, [slug]);
 
   const handleLike = () => {
     if (hasLiked) return; // Prevent double-liking
@@ -60,59 +37,15 @@ export default function PostPage({ params }: PageProps) {
     localStorage.setItem(`liked-${slug}`, "true");
   };
 
-  if (!post) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Back Button */}
-      <Link 
-        href="/"
-        className="inline-block mb-6 text-sm uppercase tracking-wide hover:underline"
-      >
-        ← Back to Home
-      </Link>
-
-      {/* Article Header */}
-      <article className="border-b-4 border-black pb-8 mb-8">
-        <div className="mb-4">
-          <span className="inline-block bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-widest">
-            {post.category}
-          </span>
-        </div>
-        
-        <h1 className="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight">
-          {post.title}
-        </h1>
-        
-        <div className="text-sm uppercase tracking-wider text-gray-600 mb-6">
-          By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
-        </div>
-
-        <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-black pl-6">
-          {post.excerpt}
-        </p>
-      </article>
-
-      {/* Featured Image (if exists) */}
-      {post.coverImage && (
-        <div className="mb-12">
-          <img 
-            src={post.coverImage} 
-            alt={post.title}
-            className="w-full max-w-2xl mx-auto"
-          />
-        </div>
-      )}
-
+    <>
       {/* Article Content */}
-      <div className="prose prose-lg max-w-none">
+      <div className="prose prose-lg max-w-none mb-12">
         <div 
           className="article-content leading-relaxed text-gray-800"
           style={{ whiteSpace: 'pre-wrap' }}
         >
-          {post.content}
+          {content}
         </div>
       </div>
 
@@ -127,7 +60,7 @@ export default function PostPage({ params }: PageProps) {
               : 'bg-white text-black hover:bg-gray-100'
           }`}
         >
-          <span className="text-2xl">{hasLiked ? '👍' : '👍'}</span>
+          <span className="text-2xl">👍</span>
           <span className="text-sm">
             {hasLiked ? 'You liked this!' : 'Like this post'}
           </span>
@@ -139,16 +72,6 @@ export default function PostPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-
-      {/* Back to Home */}
-      <div className="mt-8 text-center">
-        <Link 
-          href="/"
-          className="inline-block bg-black text-white px-8 py-3 font-bold uppercase tracking-wide hover:bg-gray-800 transition-colors text-sm"
-        >
-          ← Back to All Stories
-        </Link>
-      </div>
-    </div>
+    </>
   );
 }
