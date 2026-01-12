@@ -3,6 +3,7 @@
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from '@vercel/analytics/react';
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
