@@ -7,7 +7,7 @@ category: "Behind the Scenes"
 
 **Fade in: Int. home – night**
 
-Patrice sits down at her laptop, typing. The sound of her kids' music is blaring through the walls. Their little feet thump against the ground as they dance back and forth across the room.
+P sits down at her laptop, typing. The sound of her kids' music is blaring through the walls. Their little feet thump against the ground as they dance back and forth across the room.
 
 ---
 
