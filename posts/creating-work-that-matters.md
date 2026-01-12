@@ -16,7 +16,7 @@ I'm glad you're here. If you actually read my takes and keep track of the times 
 
 **Int. Home - day**
 
-Patrice sneaks away from her family and slips into her writing room, laptop tucked under her arm. She nestles into her spot and begins to type. The sound of a football game and chanting from two toddlers looking for mommy and missing toys rings through the walls. She continues to write.
+P sneaks away from her family and slips into her writing room, laptop tucked under her arm. She nestles into her spot and begins to type. The sound of a football game and chanting from two toddlers looking for mommy and missing toys rings through the walls. She continues to write.
 
 ---
 
