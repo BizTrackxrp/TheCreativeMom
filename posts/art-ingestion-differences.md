@@ -9,7 +9,7 @@ Take 1... 10:44 am
 
 **Int. Home – Day**
 
-Patrice sits down, her computer in her lap. Chaos ensues as crying and the sound of a slamming door echo behind her. She turns around to check out the drama, then immediately turns back around to type. Just write, she whispers to herself, allowing the chaos to continue for another moment.
+P sits down, her computer in her lap. Chaos ensues as crying and the sound of a slamming door echo behind her. She turns around to check out the drama, then immediately turns back around to type. Just write, she whispers to herself, allowing the chaos to continue for another moment.
 
 ---
 
