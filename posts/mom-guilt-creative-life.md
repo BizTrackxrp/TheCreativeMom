@@ -11,7 +11,7 @@ This question intrigues me so I'll stay. Take 1, 1:40am.
 
 **Int. home - night**
 
-Patrice sits at her laptop on the couch. Silence in the house. She breathes deeply fully embracing this moment. Her lips release a flow of breath, her fingers glide against the keyboard.
+P sits at her laptop on the couch. Silence in the house. She breathes deeply fully embracing this moment. Her lips release a flow of breath, her fingers glide against the keyboard.
 
 ---
 
