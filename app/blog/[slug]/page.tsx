@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import Link from "next/link";
 import PostContent from "./PostContent";
+import LikeButton from "./LikeButton";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -35,23 +36,23 @@ export default async function PostPage({ params }: PageProps) {
 
       {/* Article Header */}
       <article className="border-b-4 border-black pb-8 mb-8">
-        <div className="flex justify-between items-start gap-6">
-          <div className="flex-1">
-            <h1 className="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight">
-              {post.title}
-            </h1>
-            
-            <div className="text-sm uppercase tracking-wider text-gray-600 mb-6">
-              By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
-            </div>
+        <h1 className="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight">
+          {post.title}
+        </h1>
+        
+        <div className="text-sm uppercase tracking-wider text-gray-600 mb-6">
+          By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
+        </div>
 
-            <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-black pl-6">
-              {post.excerpt}
-            </p>
+        <div className="relative">
+          <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-black pl-6 pr-20">
+            {post.excerpt}
+          </p>
+          
+          {/* Like Button - Bottom Right of Excerpt */}
+          <div className="absolute bottom-0 right-0">
+            <LikeButton slug={slug} />
           </div>
-
-          {/* Like Button - Top Right */}
-          <PostContent content={post.content} slug={slug} isLikeButton={true} />
         </div>
       </article>
 
@@ -67,7 +68,7 @@ export default async function PostPage({ params }: PageProps) {
       )}
 
       {/* Article Content */}
-      <PostContent content={post.content} slug={slug} isLikeButton={false} />
+      <PostContent content={post.content} />
 
       {/* Back to Home */}
       <div className="mt-8 text-center">
