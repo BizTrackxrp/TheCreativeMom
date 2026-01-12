@@ -46,8 +46,10 @@ export default function LikeButton({ slug }: LikeButtonProps) {
     <div className="flex flex-col items-center gap-1">
       <button
         onClick={handleLike}
-        className={`text-4xl transition-all hover:scale-110 ${
-          hasLiked ? 'opacity-100' : 'opacity-40 hover:opacity-70'
+        className={`text-4xl transition-all hover:scale-110 p-2 rounded ${
+          hasLiked 
+            ? 'bg-green-200 shadow-lg' 
+            : 'hover:bg-gray-100'
         }`}
         title={hasLiked ? 'Click to unlike' : 'Like this post'}
       >
