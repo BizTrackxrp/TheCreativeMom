@@ -35,23 +35,24 @@ export default async function PostPage({ params }: PageProps) {
 
       {/* Article Header */}
       <article className="border-b-4 border-black pb-8 mb-8">
-        <div className="mb-4">
-          <span className="inline-block bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-widest">
-            {post.category}
-          </span>
-        </div>
-        
-        <h1 className="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight">
-          {post.title}
-        </h1>
-        
-        <div className="text-sm uppercase tracking-wider text-gray-600 mb-6">
-          By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
-        </div>
+        <div className="flex justify-between items-start gap-6">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-6xl font-serif font-black mb-6 leading-tight">
+              {post.title}
+            </h1>
+            
+            <div className="text-sm uppercase tracking-wider text-gray-600 mb-6">
+              By Patrice • {format(new Date(post.date), 'MM/dd/yyyy')}
+            </div>
 
-        <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-black pl-6">
-          {post.excerpt}
-        </p>
+            <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-black pl-6">
+              {post.excerpt}
+            </p>
+          </div>
+
+          {/* Like Button - Top Right */}
+          <PostContent content={post.content} slug={slug} isLikeButton={true} />
+        </div>
       </article>
 
       {/* Featured Image (if exists) */}
@@ -66,7 +67,7 @@ export default async function PostPage({ params }: PageProps) {
       )}
 
       {/* Article Content */}
-      <PostContent content={post.content} slug={slug} />
+      <PostContent content={post.content} slug={slug} isLikeButton={false} />
 
       {/* Back to Home */}
       <div className="mt-8 text-center">
