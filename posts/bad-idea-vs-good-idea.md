@@ -12,7 +12,7 @@ Take 2... 8:20pm
 
 **Int. Home - morning**
 
-Patrice lies awake, still in bed. She pulls her phone out and begins to type. The room is dark, silent, apart from the tiny whistling snore of the golden retriever laying on the floor.
+P lies awake, still in bed. She pulls her phone out and begins to type. The room is dark, silent, apart from the tiny whistling snore of the golden retriever laying on the floor.
 
 ---
 
