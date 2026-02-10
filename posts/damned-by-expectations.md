@@ -1,6 +1,6 @@
 ---
 title: "Managing Expectations: D*mned by Expectations 2"
-date: "2026-1-22"
+date: "2026-01-22"
 excerpt: "I originally started this entry and had to come back to it to figure out what I actually wanted to say. I've written about expectations before, and I wanted this one to be different."
 category: "Behind the Scenes"
 ---
